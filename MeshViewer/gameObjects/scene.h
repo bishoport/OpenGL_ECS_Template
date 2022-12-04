@@ -1,6 +1,7 @@
 #pragma once
 #include "../config.h"
 #include "../ECS/ECS.h"
+#include "../Lighting/light.h"
 
 class Scene {
 public:
@@ -15,5 +16,7 @@ public:
 	Entity* mainCamera;
 
 	std::vector<Entity*> entitiesInScene;
+
+	std::vector<Light*> lights;
 
 };

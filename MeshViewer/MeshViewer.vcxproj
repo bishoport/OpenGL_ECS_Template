@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="control\game_app.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="Lighting\light.cpp" />
     <ClCompile Include="MeshViewer.cpp" />
     <ClCompile Include="gameObjects\scene.cpp" />
     <ClCompile Include="view\engine.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="ECS\material_comp.h" />
     <ClInclude Include="ECS\mesh_filter_comp.h" />
     <ClInclude Include="ECS\transform_comp.h" />
+    <ClInclude Include="Lighting\light.h" />
     <ClInclude Include="view\loaders\tiny_obj_loader.h" />
     <ClInclude Include="gameObjects\scene.h" />
     <ClInclude Include="stb_image.h" />

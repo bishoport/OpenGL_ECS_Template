@@ -16,9 +16,9 @@ Scene::Scene() {
 	Image woodImage = util::load_from_file("textures/checker.jpg");
 	std::vector<float> vertices = util::load_model_from_file("models/cube.obj", glm::mat4(1.0));
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 1; i++)
 	{
-		for (int j = 0; j < 20; j++)
+		for (int j = 0; j < 1; j++)
 		{
 			Entity* entity = &manager.addEntity();
 			entity->addComponent<Transform>();
@@ -32,12 +32,31 @@ Scene::Scene() {
 		}
 	}
 	util::free_image_memory(woodImage);
+
+	//LUCES
+	LightCreateInfo lightInfo;
+	lightInfo.color = glm::vec3(1, 0, 0);
+	lightInfo.position = glm::vec3(1, 0, 2);
+	lightInfo.strength = 4.0f;
+	lights.push_back(new Light(&lightInfo));
+
+	lightInfo.color = glm::vec3(0, 1, 0);
+	lightInfo.position = glm::vec3(3, 2, 0);
+	lights.push_back(new Light(&lightInfo));
+
+	lightInfo.color = glm::vec3(0, 1, 1);
+	lightInfo.position = glm::vec3(3, 0, 2);
+	lights.push_back(new Light(&lightInfo));
 }
 
 Scene::~Scene() {
 	entitiesInScene.clear();
 	entitiesInScene.shrink_to_fit();
 	delete mainCamera;
+
+	for (Light* light : lights) {
+		delete light;
+	}
 }
 
 void Scene::update(float rate) {
